@@ -5,13 +5,13 @@ CS assignment - typing test in the command line, made with Python
 Sands of Typing is a typing test program in the command line, made with the Python programming language. It was made for a class assignment. Themed around deserts and sand, Sands of Typing hopes to be a simple, all-in-one typing program.
 
 ## Screenshots
-Home page
+Home page<br/>
 ![image](image.png)
 
-Typing test
+Typing test<br/>
 ![image](image_2.png)
 
-Previous times
+Previous times<br/>
 ![image](image_3.png)
 
 ## Contributing
