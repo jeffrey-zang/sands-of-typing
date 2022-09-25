@@ -36,9 +36,6 @@ def printdelay(string, dobreaker=True):
     if dobreaker:
         print(breaker)
 
-def getinput(desired = []):
-		"""Loops until input is correct"""
-
 breaker = f"\033[1;33m{'*'*5} {'~'*40} {'*'*5}{colorend}"
 
 printdelay(f"""
@@ -49,32 +46,28 @@ This program, desert and sand themed, is the \033[0;31mall-in-one package{colore
 """)
 
 printdelay(
-    f"""
-\033[1mOptions
+    f"""\033[1mOptions
 \033[0;34m(1) Camel Racing (start a test)
 \033[0;32m(2) Visit the Sand Bar (view my previous times)
 \033[0;31m(3) Scour the Dunes (improve your typing skills){colorend}
 Please select one of these options (1, 2, or 3) by typing it into the console below.
 """, False)
-response = input()
 
 while True:
+    response = input()
     if response in ['1', 'one', 's'] or response.startswith('start'):
         os.system('clear')
     
-        printdelay(f"""
-    \033[1;34mCamel Racing (typing test){colorend}\n
-    \033[1mDifficulty Options
-    \033[0;32m(1) Carcross (easy)
-    \033[0;33m(2) Gobi (medium)
-    \033[0;31m(3) Sahara (hard)
+        printdelay(f"""\033[1;34mCamel Racing (typing test){colorend}\n
+\033[1mDifficulty Options
+\033[0;32m(1) Carcross (easy)
+\033[0;33m(2) Gobi (medium)
+\033[0;31m(3) Sahara (hard){colorend}
     """)
     
         selectedtext = []
         while True:
-            difficulty = input(
-                'Please select one of these options (1, 2, or 3) by typing it into the console below.\n\n'
-            )
+            difficulty = input('Please select one of these options (1, 2, or 3) by typing it into the console below.\n\n')
     
             if difficulty.lower() in ['1', 'easy', 'carcross', 'one']:
                 selectedtext = [random.choice(easy), 'easy']
@@ -90,21 +83,47 @@ while True:
             continue
     
         os.system('clear')
-        printdelay(f"""\033[1mSelected difficulty {selectedtext[1]}{colorend}
-    When you see the text appear, you will have some time to prepare, depending on how long the text is. Then, type it out as fast as you can. The test ends when you press \033[1mENTER, so be sure not to press it before then.
+        printdelay(f"""\033[1mSelected difficulty: \033[0;32m{selectedtext[1]}{colorend}
+				
+When you see the text appear, you will have some time to prepare, depending on how long the text is. Then, type it out as fast as you can. The test ends when you press \033[1mENTER, so be sure not to press it before then.
     """)
-    
-    #   ready = False
-    #   while not ready:
-    #     isReady = input(f"\nType \033[1mREADY{colorend} when you're ready to start.\n")
-    #     if isReady.lower() in ['ready', 'r', 'y', 'yes']:
-    #       ready = True
-    
-    #   os.system('clear')
-    
-    #   # textChosen =
-    
-    #   printdelay(f"""{breaker}
-    # \033[1;34mHere is your text:\n
-    # {breaker}
-    # """)
+        isready = input('Please type ready when you are ready to start.\n\n')
+
+        if isready.lower() != 'ready':
+		        while True:
+		            isready = input('Please type ready when you are ready to start.\n')
+		            if isready.lower() == 'ready':
+		                break
+
+        os.system('clear')
+        printdelay(f"""\033[1mYour text is:{colorend}\n
+\033[1;34m{selectedtext[0]}{colorend}\n
+Take this time to read the text. You will see "GO!" when you are allowed to start. Press ENTER when you have finished the test.
+""")
+        time.sleep(2)
+        now = int(round(time.time() * 1000))
+        typed = input('GO!\n\n')
+        elapsed = round(int(round(time.time() * 1000)) - now) / 1000
+        perminute = 60 / elapsed
+
+        totalletters = len(list(selectedtext))
+        typedletters = len(list(typed))
+				
+        difference = abs(totalletters - typedletters)
+        accuracy = round((1 - (difference / typedletters) )) * 100
+
+        cpm = typedletters / perminute
+        rawwpm = cpm / 4.7
+        abswpm = rawwpm * accuracy
+			
+        os.system('clear')
+        printdelay(f"""You typed:\n
+\033[1;34m{typed}{colorend}\n
+Your stats:\n
+- Time Taken: {elapsed}s
+- Accuracy: {accuracy}%
+- Characters Per Minute: {cpm}
+- Raw Words Per Minute: {rawwpm}
+- Words Per Minute: {abswpm}
+- perminute: {perminute}
+""")
