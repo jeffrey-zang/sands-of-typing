@@ -163,55 +163,59 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
         totalletters = len(list(selectedtext[0]))
         typedletters = len(list(typed))
 
-        difference = abs(totalletters - typedletters)
-        accuracy = 100 - ((difference / typedletters) * 100)
-        if accuracy == 0.0: accuracy = 100
-        if selectedtext[0] != typed:
-            if difference >= 2:
-                accuracy -= difference ^ 2
-            else:
-                accuracy -= 1
+        if typedletters != 0:
+          difference = abs(totalletters - typedletters)
+          accuracy = 100 - ((difference / typedletters) * 100)
+          if accuracy == 0.0: accuracy = 100
+          if selectedtext[0] != typed:
+              if difference >= 2:
+                  accuracy -= difference ^ 2
+              else:
+                  accuracy -= 1
+  
+          cpm = typedletters * perminute
+          rawwpm = cpm / 4.7
+          abswpm = rawwpm * (accuracy / 100)
 
-        cpm = typedletters * perminute
-        rawwpm = cpm / 4.7
-        abswpm = rawwpm * (accuracy / 100)
-
-        os.system('clear')
-
-        now = datetime.now()
-        user.append({
-            'difficulty': [selectedtext[1], color],
-            'wpm': round(abswpm, 2),
-            'accuracy': round(accuracy, 2),
-            'time': now.strftime("%d/%m/%Y %H:%M:%S")
-        })
+          os.system('clear')
+  
+          now = datetime.now()
+          user.append({
+              'difficulty': [selectedtext[1], color],
+              'wpm': round(abswpm, 2),
+              'accuracy': round(accuracy, 2),
+              'time': now.strftime("%d/%m/%Y %H:%M:%S")
+          })
+          
+          placing = random.randint(1,10)
+          if placing == 1:
+            placing = '1st'
+          elif placing == 2:
+            placing = '2nd'
+          elif placing == 3:
+            placing = '3rd'
+          else:
+            placing = f'{placing}th'
         
-        placing = random.randint(1,10)
-        if placing == 1:
-          placing = '1st'
-        elif placing == 2:
-          placing = '2nd'
-        elif placing == 3:
-          placing = '3rd'
+          printdelay(f"""You typed:\n
+  \033[1;34m{typed}{colorend}\n
+  Your stats:\n
+  \033[1mWords per minute: {round(abswpm, 2)}{colorend}
+  Characters per minute: {round(cpm, 2)}
+  Raw WPM: {round(rawwpm, 2)}
+  
+  \033[1mAccuracy: {round(accuracy, 2)}%{colorend}
+  Time Taken: {round(elapsed, 2)}s
+  Difficulty: {color}{selectedtext[1]}{colorend}
+  
+  Added to user records.
+  \033[1;33mYour camel got {placing} place.
+  """)
+  
+          printoptions()
         else:
-          placing = f'{placing}th'
-      
-        printdelay(f"""You typed:\n
-\033[1;34m{typed}{colorend}\n
-Your stats:\n
-\033[1mWords per minute: {round(abswpm, 2)}{colorend}
-Characters per minute: {round(cpm, 2)}
-Raw WPM: {round(rawwpm, 2)}
-
-\033[1mAccuracy: {round(accuracy, 2)}%{colorend}
-Time Taken: {round(elapsed, 2)}s
-Difficulty: {color}{selectedtext[1]}{colorend}
-
-Added to user records.
-\033[1;33mYour camel got {placing} place.
-""")
-
-        printoptions()
+          print('Test invalid: no input')
+          printoptions()
 
     if response.lower() in ['2', 'view', 'sand bar', 'two']:
         os.system('clear')
