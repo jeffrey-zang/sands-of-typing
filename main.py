@@ -3,7 +3,7 @@ import time
 import random
 from datetime import datetime
 
-easy = [
+easy = [  #texts from 0-150 characters in length
     'The quick brown fox jumps over the lazy dog.',
     'Leave something for someone but don\'t leave someone for something.',
     'Believe in one thing too much and you have no room for new ideas.',
@@ -22,17 +22,17 @@ easy = [
     'I played video games in a drunken haze, I was 17 years young. Hurt my knuckles punching the machines, the taste of Scotch rich on my tongue.',
     'You can\'t get back what you\'ve lost, what\'s important now is what is it that you still have.',
     'They often wish that people would just once and for all work out where the hell they wanted to be.',
-  'Why do they call it oven when you of in the cold food of out hot eat the food?',
-  'Mother, I would be most grateful if you let me consume a pastry with a high levels of sugars and simple carbohydrates.',
-  'If you are reading this, you are slow. If you are not reading this, you are average.',
-  'Step right up and I\'ll guess your weight. Your wait is: 45 minutes!',
-  'There are two types of camels: One humped or “dromedary” camels and two humped Bactrian camels.',
-  'Camels have three sets of eyelids and two rows of eyelashes to keep sand out of their eyes.',
-  'Camels are very strong and can carry up to 900 pounds for 25 miles a day.',
-  'Camels can travel at up to 40 miles per hour – the same as a racehorse!',
-  'Some camel calves are born completely white and turn brown as their adult coat comes in.'
+    'Why do they call it oven when you of in the cold food of out hot eat the food?',
+    'Mother, I would be most grateful if you let me consume a pastry with a high levels of sugars and simple carbohydrates.',
+    'If you are reading this, you are slow. If you are not reading this, you are average.',
+    'Step right up and I\'ll guess your weight. Your wait is: 45 minutes!',
+    'There are two types of camels: One humped or “dromedary” camels and two humped Bactrian camels.',
+    'Camels have three sets of eyelids and two rows of eyelashes to keep sand out of their eyes.',
+    'Camels are very strong and can carry up to 900 pounds for 25 miles a day.',
+    'Camels can travel at up to 40 miles per hour – the same as a racehorse!',
+    'Some camel calves are born completely white and turn brown as their adult coat comes in.'
 ]
-medium = [
+medium = [  #texts from 150-250 characters in length
     'The mark of the immature man is that he wants to die nobly for a cause, while the mark of the mature man is that he wants to live humbly for one.',
     'I have a dream, a fantasy, to help me through reality. And my destination makes it worth the while, pushing through the darkness still another mile.',
     'According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway. Because bees don\'t care what humans think is impossible.',
@@ -40,25 +40,25 @@ medium = [
     'It\'s important in life to conclude things properly. Only then can you let go. Otherwise you are left with words you should have said but never did, and your heart is heavy with remorse.',
     'There is matter to everything even air or shadow, too small to see. The Cut is something a Summoner can do, but it requires tremendous skill and I would only use it as a last resort. Like that ambush.',
     'There are approximately 1010300 words in the English language, but I could never string enough words together to properly express how much I want to hit you with a chair.',
-    'In this assignment, you will write a Python program of your choosing that shows off what you\'ve learned so far. This is your chance to be creative and expressive, and break free of the draconian, stultifying requirements that we teachers are always imposing on you.'
 ]
 
-hard = [
-    # 'Never imagine yourself not to be otherwise than what it might appear to others that what you were or might have been was not otherwise than what you had been would have appeared to them to be otherwise.',
-    # 'A father may have a child who is ugly and lacking in all the graces, and the love he feels for him puts a blindfold over his eyes so that he does not see his defects but considers them signs of charm and intelligence and recounts them to his friends as if they were clever and witty.',
-    # 'Once upon a time there was a lovely princess. But she had an enchantment upon her of a fearful sort which could only be broken by love\'s first kiss. She was locked away in a castle guarded by a terrible fire-breathing dragon. Many brave knights had attempted to free her from this dreadful prison, but none prevailed. She waited in the dragon\'s keep in the highest room of the tallest tower for her true love and true love\'s first kiss.',
-    # 'Now he saw the familiar wide river beside the path differently. He saw all of the light and color and history it contained and carried in its slow-moving water; and he knew that there was an Elsewhere from which it came, and an Elsewhere to which it was going.',
-    # 'One of the reasons why we crave love, and seek it so desperately, is that love is the only cure for loneliness, and shame, and sorrow. But some feelings sink so deep into the heart that only loneliness can help you find them again. Some truths about yourself are so painful that only shame can help you live with them. And some things are just so sad that only your soul can do the crying for you.',
-    # "Why, some are born great, some achieve greatness, and some have greatness thrown upon them. I was one, sir, in this interlude; one Sir Topas, sir; but that's all one. By the Lord, fool, I am not mad. But do you remember? Madam, why laugh you at such a barren rascal? an you smile not, he's gagged: and thus the whirligig of time brings in his revenges.",
-    # "I started the day with some nothin' tea. Nothin' tea is easy to make. First, get some hot water, then add nothin'. I experimented with potato skin tea a few weeks ago. The less said about that the better.",
-    # 'A glooming peace this morning with it brings. The sun for sorrow will not show its head. Go hence to have more talk of these sad things. Some shall be pardoned and some punished. For never was a story of more woe than this of Juliet and her Romeo.',
-    # 'Farewell. We will likely meet again, should destiny dictate. If you mean to pursue the inhumans, follow the guidance of that brand. It reacts strongly to evil. But mind this: Yours is a black path through the night. When you confront those who lurk in the darkness, you also envelop yourself in it. Good journey, struggler.',
-    # 'We can also determine the end behavior of a polynomial function from its equation. This is often helpful while trying to graph the function, as knowing the end behavior helps us visualize the graph at the "ends."',
+hard = [  #texts 250+ characters in length
+    'In this assignment, you will write a Python program of your choosing that shows off what you\'ve learned so far. This is your chance to be creative and expressive, and break free of the draconian, stultifying requirements that we teachers are always imposing on you.',
+    'Never imagine yourself not to be otherwise than what it might appear to others that what you were or might have been was not otherwise than what you had been would have appeared to them to be otherwise.',
+    'A father may have a child who is ugly and lacking in all the graces, and the love he feels for him puts a blindfold over his eyes so that he does not see his defects but considers them signs of charm and intelligence and recounts them to his friends as if they were clever and witty.',
+    'Once upon a time there was a lovely princess. But she had an enchantment upon her of a fearful sort which could only be broken by love\'s first kiss. She was locked away in a castle guarded by a terrible fire-breathing dragon. Many brave knights had attempted to free her from this dreadful prison, but none prevailed. She waited in the dragon\'s keep in the highest room of the tallest tower for her true love and true love\'s first kiss.',
+    'Now he saw the familiar wide river beside the path differently. He saw all of the light and color and history it contained and carried in its slow-moving water; and he knew that there was an Elsewhere from which it came, and an Elsewhere to which it was going.',
+    'One of the reasons why we crave love, and seek it so desperately, is that love is the only cure for loneliness, and shame, and sorrow. But some feelings sink so deep into the heart that only loneliness can help you find them again. Some truths about yourself are so painful that only shame can help you live with them. And some things are just so sad that only your soul can do the crying for you.',
+    "Why, some are born great, some achieve greatness, and some have greatness thrown upon them. I was one, sir, in this interlude; one Sir Topas, sir; but that's all one. By the Lord, fool, I am not mad. But do you remember? Madam, why laugh you at such a barren rascal? an you smile not, he's gagged: and thus the whirligig of time brings in his revenges.",
+    "I started the day with some nothin' tea. Nothin' tea is easy to make. First, get some hot water, then add nothin'. I experimented with potato skin tea a few weeks ago. The less said about that the better.",
+    'A glooming peace this morning with it brings. The sun for sorrow will not show its head. Go hence to have more talk of these sad things. Some shall be pardoned and some punished. For never was a story of more woe than this of Juliet and her Romeo.',
+    'Farewell. We will likely meet again, should destiny dictate. If you mean to pursue the inhumans, follow the guidance of that brand. It reacts strongly to evil. But mind this: Yours is a black path through the night. When you confront those who lurk in the darkness, you also envelop yourself in it. Good journey, struggler.',
+    'We can also determine the end behavior of a polynomial function from its equation. This is often helpful while trying to graph the function, as knowing the end behavior helps us visualize the graph at the "ends."',
     'Breyers was made 62 years before Dreyers was made, and Dreyers was made by William J Dreyers. William J Dreyers was a man of selfishness and greed. He strived to make as much currency as possible, and become a man of wealth. On the other hand, creator of Breyers, William A Breyers was a fine man. He wanted to make delicious treats for everybody to enjoy, making the ice cream cheap and tasty.'
 ]
 
-user = []
-colorend = '\033[0m'
+user = []  #array of all tests done by user
+colorend = '\033[0m'  #python ansi colour code ending
 
 
 def printdelay(string, dobreaker=True):
@@ -145,7 +145,7 @@ while True:
         printdelay(
             f"""\033[1mSelected difficulty: {color}{selectedtext[1]}{colorend}
 				
-When you see the text appear, you will have some time to prepare, depending on how long the text is. Then, type it out as fast as you can. The test ends when you press \033[1mENTER, so be sure not to press it before then.
+When you see the text appear, DO NOT START. You will have some time to prepare, depending on how long the text is. Then, type it out as fast as you can. The test ends when you press \033[1mENTER, so be sure not to press it before then.
     """)
         isready = input('Please type ready when you are ready to start.\n\n')
 
@@ -201,12 +201,12 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
                 'time': now.strftime("%d/%m/%Y %H:%M:%S")
             })
 
-            placing = random.randint(1, 10)
-            if placing == 1:
+            placing = random.randint(4, 10)
+            if abswpm > 120: 
                 placing = '1st'
-            elif placing == 2:
+            elif abswpm > 100:
                 placing = '2nd'
-            elif placing == 3:
+            elif placing > 90:
                 placing = '3rd'
             else:
                 placing = f'{placing}th'
