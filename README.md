@@ -26,3 +26,6 @@ To contribute texts, add them to the arrays in main.py. Here are the benchmarks:
 Easy: 0-150 characters<br/>
 Medium: 150-250 characters<br/>
 Hard: 250+ characters
+
+## Copy-Paste Proof
+Since this program runs in the command line, it is immune to the Ctrl+C copy command. Ctrl+C is the escape shortcut, and causes a KeyboardInterruptError in Python 3.
