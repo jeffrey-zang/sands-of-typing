@@ -7,17 +7,14 @@ from datetime import datetime
 # texts from 0-150 characters in length
 with open('lib/easy.json', 'r', encoding="mbcs") as file:
     easy = json.load(file)
-    file.close()
     
 # texts from 150-250 characters in length
 with open('lib/medium.json', 'r', encoding="mbcs") as file:
     medium = json.load(file)
-    file.close()
 
 # texts 250+ characters in length
 with open('lib/hard.json', 'r', encoding="mbcs") as file:
     hard = json.load(file)
-    file.close()
 
 user = []  # array of all tests done by user
 colorend = '\033[0m'  # python ansi colour code ending
