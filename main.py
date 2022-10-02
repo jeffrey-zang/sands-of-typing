@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import time
 import random
 from datetime import datetime
@@ -7,17 +8,14 @@ from datetime import datetime
 # texts from 0-150 characters in length
 with open('lib/easy.json', 'r', encoding="mbcs") as file:
     easy = json.load(file)
-    file.close()
     
 # texts from 150-250 characters in length
 with open('lib/medium.json', 'r', encoding="mbcs") as file:
     medium = json.load(file)
-    file.close()
 
 # texts 250+ characters in length
 with open('lib/hard.json', 'r', encoding="mbcs") as file:
     hard = json.load(file)
-    file.close()
 
 user = []  # array of all tests done by user
 colorend = '\033[0m'  # python ansi colour code ending
@@ -74,7 +72,7 @@ while True:
     response = input()
     if response in ['0', 'zero', 'exit', 'quit']:
         print("Thanks for playing!\nExiting...\n")
-        exit(0)
+        sys.exit(0)
     
     if response in ['1', 'one', 's'] or response.startswith('start'):
         os.system('clear')
