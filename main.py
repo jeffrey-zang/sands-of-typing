@@ -22,7 +22,6 @@ with open('lib/hard.json', 'r', encoding="mbcs") as file:
 user = []  # array of all tests done by user
 colorend = '\033[0m'  # python ansi colour code ending
 
-
 def printdelay(string, dobreaker=True):
     """Prints text with a delay, based on how long each line is"""
     string = string.split('\n')
