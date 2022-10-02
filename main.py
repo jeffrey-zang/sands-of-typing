@@ -8,7 +8,7 @@ from datetime import datetime
 with open('lib/easy.json', 'r', encoding="mbcs") as file:
     easy = json.load(file)
     file.close()
-
+    
 # texts from 150-250 characters in length
 with open('lib/medium.json', 'r', encoding="mbcs") as file:
     medium = json.load(file)
@@ -50,11 +50,13 @@ def printoptions():
     """Prints menu options"""
     printdelay(
         f"""\n\033[1mOptions
-\033[0;34m(1) Camel Racing (start a test)
-\033[0;32m(2) Visit the Sand Bar (view my previous times)
-\033[0;31m(3) Scour the Dunes (improve your typing skills){colorend}
-Please select one of these options (1, 2, or 3) by typing it into the console below.
-""", False)
+            \033[0;34m(1) Camel Racing (start a test)
+            \033[0;32m(2) Visit the Sand Bar (view my previous times)
+            \033[0;31m(3) Scour the Dunes (improve your typing skills)
+            \033[0;30m(0) ***EXIT THE PROGRAM***{colorend}
+            Please select one of these options (1, 2, or 3) by typing it into the console below.
+            """, False)
+    
 
 
 breaker = f"\033[1;33m{'*' * 5} {'~' * 40} {'*' * 5}{colorend}"
@@ -70,6 +72,10 @@ printoptions()
 
 while True:
     response = input()
+    if response in ['0', 'zero', 'exit', 'quit']:
+        print("Thanks for playing!\nExiting...\n")
+        exit(0)
+    
     if response in ['1', 'one', 's'] or response.startswith('start'):
         os.system('clear')
 
@@ -123,7 +129,7 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
 Take this time to read the text. You will see "GO!" when you are allowed to start. Press ENTER when you have finished the test.
 """)
         print('DON\'T START YET!')
-        time.sleep(3)
+        time.sleep(1)
         print('3')
         time.sleep(1)
         print('2')
@@ -141,7 +147,8 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
         if typedletters != 0:
             difference = abs(totalletters - typedletters)
             accuracy = 100 - ((difference / typedletters) * 100)
-            if accuracy == 0.0: accuracy = 100
+            if accuracy == 0.0:
+                accuracy = 100
             if selectedtext[0] != typed:
                 if difference >= 2:
                     accuracy -= difference ^ 2
