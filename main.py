@@ -1,5 +1,5 @@
 import json
-from os import system,name
+import os 
 import sys
 import time
 import random
@@ -75,8 +75,8 @@ while True:
         sys.exit(0)
     
     if response in ['1', 'one', 's'] or response.startswith('start'):
-        if name == 'nt':
-            _ = system('cls')
+        if os.name == 'nt':
+            _ = os.system('cls')
         else:
             os.system('clear')
 
@@ -109,8 +109,8 @@ while True:
                 break
             continue
 
-        if name == 'nt':
-            _ = system('cls')
+        if os.name == 'nt':
+            _ = os.system('cls')
         else:
             os.system('clear')
         printdelay(
@@ -127,8 +127,8 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
                 if isready.lower() == 'ready':
                     break
 
-        if name == 'nt':
-            _ = system('cls')
+        if os.name == 'nt':
+            _ = os.system('cls')
         else:
             os.system('clear')
         printdelay(f"""\033[1mYour text is:{colorend}\n
@@ -166,8 +166,8 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             rawwpm = cpm / 4.7
             abswpm = rawwpm * (accuracy / 100)
 
-            if name == 'nt':
-                _ = system('cls')
+            if os.name == 'nt':
+                _ = os.system('cls')
             else:
                 os.system('clear')
 
@@ -210,8 +210,8 @@ Added to user records.
             printoptions()
 
     if response.lower() in ['2', 'view', 'sand bar', 'two']:
-        if name == 'nt':
-            _ = system('cls')
+        if os.name == 'nt':
+            _ = os.system('cls')
         else:
             os.system('clear')
         if user == []:
@@ -240,8 +240,8 @@ Added to user records.
         printoptions()
 
     if response.lower() in ['3', 'improve', 'scour', 'three']:
-        if name == 'nt':
-            _ = system('cls')
+        if os.name == 'nt':
+            _ = os.system('cls')
         else:
             os.system('clear')
         printdelay(f"""\033[1mBest typing resources{colorend}\n
