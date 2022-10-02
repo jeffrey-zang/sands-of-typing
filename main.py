@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 import time
 import random
 from datetime import datetime
@@ -71,7 +72,7 @@ while True:
     response = input()
     if response in ['0', 'zero', 'exit', 'quit']:
         print("Thanks for playing!\nExiting...\n")
-        exit(0)
+        sys.exit(0)
     
     if response in ['1', 'one', 's'] or response.startswith('start'):
         os.system('clear')
