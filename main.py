@@ -1,5 +1,5 @@
 import json
-import os 
+import os
 import sys
 import time
 import random
@@ -76,7 +76,7 @@ while True:
     
     if response in ['1', 'one', 's'] or response.startswith('start'):
         if os.name == 'nt':
-            _ = os.system('cls')
+            os.system('cls')
         else:
             os.system('clear')
 
@@ -110,7 +110,7 @@ while True:
             continue
 
         if os.name == 'nt':
-            _ = os.system('cls')
+            os.system('cls')
         else:
             os.system('clear')
         printdelay(
@@ -128,7 +128,7 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
                     break
 
         if os.name == 'nt':
-            _ = os.system('cls')
+            os.system('cls')
         else:
             os.system('clear')
         printdelay(f"""\033[1mYour text is:{colorend}\n
@@ -167,7 +167,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             abswpm = rawwpm * (accuracy / 100)
 
             if os.name == 'nt':
-                _ = os.system('cls')
+                os.system('cls')
             else:
                 os.system('clear')
 
@@ -211,7 +211,7 @@ Added to user records.
 
     if response.lower() in ['2', 'view', 'sand bar', 'two']:
         if os.name == 'nt':
-            _ = os.system('cls')
+            os.system('cls')
         else:
             os.system('clear')
         if user == []:
@@ -241,7 +241,7 @@ Added to user records.
 
     if response.lower() in ['3', 'improve', 'scour', 'three']:
         if os.name == 'nt':
-            _ = os.system('cls')
+            os.system('cls')
         else:
             os.system('clear')
         printdelay(f"""\033[1mBest typing resources{colorend}\n
