@@ -75,7 +75,7 @@ while True:
 
         printdelay(f"""\033[1;34mCamel Racing (typing test){colorend}\n
 \033[1mDifficulty Options
-\033[0;32m(1) Mojave (lines)
+\033[0;32m(1) Mojave (easy)
 \033[0;33m(2) Gobi (medium)
 \033[0;31m(3) Sahara (hard){colorend}
     """)
@@ -87,8 +87,8 @@ while True:
                 'Please select one of these options (1, 2, or 3) by typing it into the console below.\n\n'
             )
 
-            if difficulty.lower() in ['1', 'lines', 'mojave', 'one']:
-                selectedtext = [random.choice(easy), 'lines']
+            if difficulty.lower() in ['1', 'easy', 'mojave', 'one']:
+                selectedtext = [random.choice(easy), 'easy']
                 break
             elif difficulty.lower() in ['2', 'medium', 'gobi', 'two']:
                 formatted = True
