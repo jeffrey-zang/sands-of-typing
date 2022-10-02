@@ -92,7 +92,7 @@ def printoptions():
             \033[0;34m(1) Camel Racing (start a test)
             \033[0;32m(2) Visit the Sand Bar (view my previous times)
             \033[0;31m(3) Scour the Dunes (improve your typing skills)
-            \033[0;31m(0) ***EXIT THE PROGRAM***{colorend}
+            \033[0;30m(0) ***EXIT THE PROGRAM***{colorend}
             Please select one of these options (1, 2, or 3) by typing it into the console below.
             """, False)
     
