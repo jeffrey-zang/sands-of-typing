@@ -75,7 +75,10 @@ while True:
         sys.exit(0)
     
     if response in ['1', 'one', 's'] or response.startswith('start'):
-        os.system('clear')
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
 
         printdelay(f"""\033[1;34mCamel Racing (typing test){colorend}\n
 \033[1mDifficulty Options
@@ -106,7 +109,10 @@ while True:
                 break
             continue
 
-        os.system('clear')
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
         printdelay(
             f"""\033[1mSelected difficulty: {color}{selectedtext[1]}{colorend}
 				
@@ -121,7 +127,10 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
                 if isready.lower() == 'ready':
                     break
 
-        os.system('clear')
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
         printdelay(f"""\033[1mYour text is:{colorend}\n
 \033[1;34m{selectedtext[0]}{colorend}\n
 Take this time to read the text. You will see "GO!" when you are allowed to start. Press ENTER when you have finished the test.
@@ -157,7 +166,10 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             rawwpm = cpm / 4.7
             abswpm = rawwpm * (accuracy / 100)
 
-            os.system('clear')
+            if os.name == 'nt':
+                os.system('cls')
+            else:
+                os.system('clear')
 
             now = datetime.now()
             user.append({
@@ -198,7 +210,10 @@ Added to user records.
             printoptions()
 
     if response.lower() in ['2', 'view', 'sand bar', 'two']:
-        os.system('clear')
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
         if user == []:
             print('You don\'t have any recorded times. Do a camel race first!')
             printoptions()
@@ -225,7 +240,10 @@ Added to user records.
         printoptions()
 
     if response.lower() in ['3', 'improve', 'scour', 'three']:
-        os.system('clear')
+        if os.name == 'nt':
+            os.system('cls')
+        else:
+            os.system('clear')
         printdelay(f"""\033[1mBest typing resources{colorend}\n
 Other Typing Tests:
   - monkeytype (monkeytype.com)
