@@ -30,7 +30,8 @@ easy = [  #texts from 0-150 characters in length
     'Camels have three sets of eyelids and two rows of eyelashes to keep sand out of their eyes.',
     'Camels are very strong and can carry up to 900 pounds for 25 miles a day.',
     'Camels can travel at up to 40 miles per hour – the same as a racehorse!',
-    'Some camel calves are born completely white and turn brown as their adult coat comes in.'
+    'Some camel calves are born completely white and turn brown as their adult coat comes in.',
+    'Magic of the shadows can best be seen in the deserts.'
 ]
 medium = [  #texts from 150-250 characters in length
     'The mark of the immature man is that he wants to die nobly for a cause, while the mark of the mature man is that he wants to live humbly for one.',
@@ -40,6 +41,7 @@ medium = [  #texts from 150-250 characters in length
     'It\'s important in life to conclude things properly. Only then can you let go. Otherwise you are left with words you should have said but never did, and your heart is heavy with remorse.',
     'There is matter to everything even air or shadow, too small to see. The Cut is something a Summoner can do, but it requires tremendous skill and I would only use it as a last resort. Like that ambush.',
     'There are approximately 1010300 words in the English language, but I could never string enough words together to properly express how much I want to hit you with a chair.',
+    'Time has a way of burying things, shifting like the desert and swallowing entire civilizations, erasing them from map and memory. Always, in the end, everything returns to dust.'
 ]
 
 hard = [  #texts 250+ characters in length
@@ -54,7 +56,8 @@ hard = [  #texts 250+ characters in length
     'A glooming peace this morning with it brings. The sun for sorrow will not show its head. Go hence to have more talk of these sad things. Some shall be pardoned and some punished. For never was a story of more woe than this of Juliet and her Romeo.',
     'Farewell. We will likely meet again, should destiny dictate. If you mean to pursue the inhumans, follow the guidance of that brand. It reacts strongly to evil. But mind this: Yours is a black path through the night. When you confront those who lurk in the darkness, you also envelop yourself in it. Good journey, struggler.',
     'We can also determine the end behavior of a polynomial function from its equation. This is often helpful while trying to graph the function, as knowing the end behavior helps us visualize the graph at the "ends."',
-    'Breyers was made 62 years before Dreyers was made, and Dreyers was made by William J Dreyers. William J Dreyers was a man of selfishness and greed. He strived to make as much currency as possible, and become a man of wealth. On the other hand, creator of Breyers, William A Breyers was a fine man. He wanted to make delicious treats for everybody to enjoy, making the ice cream cheap and tasty.'
+    'Breyers was made 62 years before Dreyers was made, and Dreyers was made by William J Dreyers. William J Dreyers was a man of selfishness and greed. He strived to make as much currency as possible, and become a man of wealth. On the other hand, creator of Breyers, William A Breyers was a fine man. He wanted to make delicious treats for everybody to enjoy, making the ice cream cheap and tasty.',
+    'Alone in the silence, I understand for a moment the dread which many feel in the presence of primeval desert, the unconscious fear which compels them to tame, alter or destroy what they cannot understand, to reduce the wild and prehuman to human dimensions. Anything rather than confront directly the antehuman, that other world which frightens not through danger or hostility but in something far worse – its implacable indifference.'
 ]
 
 user = []  #array of all tests done by user
