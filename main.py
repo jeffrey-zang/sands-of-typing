@@ -3,7 +3,7 @@ import time
 import random
 from datetime import datetime
 
-easy = [  #texts from 0-150 characters in length
+easy = [  # texts from 0-150 characters in length
     'The quick brown fox jumps over the lazy dog.',
     'Leave something for someone but don\'t leave someone for something.',
     'Believe in one thing too much and you have no room for new ideas.',
@@ -30,10 +30,9 @@ easy = [  #texts from 0-150 characters in length
     'Camels have three sets of eyelids and two rows of eyelashes to keep sand out of their eyes.',
     'Camels are very strong and can carry up to 900 pounds for 25 miles a day.',
     'Camels can travel at up to 40 miles per hour – the same as a racehorse!',
-    'Some camel calves are born completely white and turn brown as their adult coat comes in.',
-    'Magic of the shadows can best be seen in the deserts.'
+    'Some camel calves are born completely white and turn brown as their adult coat comes in.'
 ]
-medium = [  #texts from 150-250 characters in length
+medium = [  # texts from 150-250 characters in length
     'The mark of the immature man is that he wants to die nobly for a cause, while the mark of the mature man is that he wants to live humbly for one.',
     'I have a dream, a fantasy, to help me through reality. And my destination makes it worth the while, pushing through the darkness still another mile.',
     'According to all known laws of aviation, there is no way that a bee should be able to fly. Its wings are too small to get its fat little body off the ground. The bee, of course, flies anyway. Because bees don\'t care what humans think is impossible.',
@@ -41,10 +40,9 @@ medium = [  #texts from 150-250 characters in length
     'It\'s important in life to conclude things properly. Only then can you let go. Otherwise you are left with words you should have said but never did, and your heart is heavy with remorse.',
     'There is matter to everything even air or shadow, too small to see. The Cut is something a Summoner can do, but it requires tremendous skill and I would only use it as a last resort. Like that ambush.',
     'There are approximately 1010300 words in the English language, but I could never string enough words together to properly express how much I want to hit you with a chair.',
-    'Time has a way of burying things, shifting like the desert and swallowing entire civilizations, erasing them from map and memory. Always, in the end, everything returns to dust.'
 ]
 
-hard = [  #texts 250+ characters in length
+hard = [  # texts 250+ characters in length
     'In this assignment, you will write a Python program of your choosing that shows off what you\'ve learned so far. This is your chance to be creative and expressive, and break free of the draconian, stultifying requirements that we teachers are always imposing on you.',
     'Never imagine yourself not to be otherwise than what it might appear to others that what you were or might have been was not otherwise than what you had been would have appeared to them to be otherwise.',
     'A father may have a child who is ugly and lacking in all the graces, and the love he feels for him puts a blindfold over his eyes so that he does not see his defects but considers them signs of charm and intelligence and recounts them to his friends as if they were clever and witty.',
@@ -56,12 +54,11 @@ hard = [  #texts 250+ characters in length
     'A glooming peace this morning with it brings. The sun for sorrow will not show its head. Go hence to have more talk of these sad things. Some shall be pardoned and some punished. For never was a story of more woe than this of Juliet and her Romeo.',
     'Farewell. We will likely meet again, should destiny dictate. If you mean to pursue the inhumans, follow the guidance of that brand. It reacts strongly to evil. But mind this: Yours is a black path through the night. When you confront those who lurk in the darkness, you also envelop yourself in it. Good journey, struggler.',
     'We can also determine the end behavior of a polynomial function from its equation. This is often helpful while trying to graph the function, as knowing the end behavior helps us visualize the graph at the "ends."',
-    'Breyers was made 62 years before Dreyers was made, and Dreyers was made by William J Dreyers. William J Dreyers was a man of selfishness and greed. He strived to make as much currency as possible, and become a man of wealth. On the other hand, creator of Breyers, William A Breyers was a fine man. He wanted to make delicious treats for everybody to enjoy, making the ice cream cheap and tasty.',
-    'Alone in the silence, I understand for a moment the dread which many feel in the presence of primeval desert, the unconscious fear which compels them to tame, alter or destroy what they cannot understand, to reduce the wild and prehuman to human dimensions. Anything rather than confront directly the antehuman, that other world which frightens not through danger or hostility but in something far worse – its implacable indifference.'
+    'Breyers was made 62 years before Dreyers was made, and Dreyers was made by William J Dreyers. William J Dreyers was a man of selfishness and greed. He strived to make as much currency as possible, and become a man of wealth. On the other hand, creator of Breyers, William A Breyers was a fine man. He wanted to make delicious treats for everybody to enjoy, making the ice cream cheap and tasty.'
 ]
 
-user = []  #array of all tests done by user
-colorend = '\033[0m'  #python ansi colour code ending
+user = []  # array of all tests done by user
+colorend = '\033[0m'  # python ansi colour code ending
 
 
 def printdelay(string, dobreaker=True):
@@ -92,11 +89,13 @@ def printoptions():
     """Prints menu options"""
     printdelay(
         f"""\n\033[1mOptions
-\033[0;34m(1) Camel Racing (start a test)
-\033[0;32m(2) Visit the Sand Bar (view my previous times)
-\033[0;31m(3) Scour the Dunes (improve your typing skills){colorend}
-Please select one of these options (1, 2, or 3) by typing it into the console below.
-""", False)
+            \033[0;34m(1) Camel Racing (start a test)
+            \033[0;32m(2) Visit the Sand Bar (view my previous times)
+            \033[0;31m(3) Scour the Dunes (improve your typing skills)
+            \033[0;31m(0) ***EXIT THE PROGRAM***{colorend}
+            Please select one of these options (1, 2, or 3) by typing it into the console below.
+            """, False)
+    
 
 
 breaker = f"\033[1;33m{'*'*5} {'~'*40} {'*'*5}{colorend}"
@@ -112,6 +111,10 @@ printoptions()
 
 while True:
     response = input()
+    if response in ['0', 'zero', 'exit', 'quit']:
+        print("Thanks for playing!\nExiting...\n")
+        exit(0)
+    
     if response in ['1', 'one', 's'] or response.startswith('start'):
         os.system('clear')
 
@@ -165,7 +168,7 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
 Take this time to read the text. You will see "GO!" when you are allowed to start. Press ENTER when you have finished the test.
 """)
         print('DON\'T START YET!')
-        time.sleep(3)
+        time.sleep(1)
         print('3')
         time.sleep(1)
         print('2')
@@ -183,7 +186,8 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
         if typedletters != 0:
             difference = abs(totalletters - typedletters)
             accuracy = 100 - ((difference / typedletters) * 100)
-            if accuracy == 0.0: accuracy = 100
+            if accuracy == 0.0:
+                accuracy = 100
             if selectedtext[0] != typed:
                 if difference >= 2:
                     accuracy -= difference ^ 2
@@ -205,7 +209,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             })
 
             placing = random.randint(4, 10)
-            if abswpm > 120: 
+            if abswpm > 120:
                 placing = '1st'
             elif abswpm > 100:
                 placing = '2nd'
