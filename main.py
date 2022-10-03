@@ -5,17 +5,32 @@ import time
 import random
 from datetime import datetime
 
-# texts from 0-150 characters in length
-with open('lib/easy.json', 'r', encoding="mbcs") as file:
-    easy = json.load(file)
-    
-# texts from 150-250 characters in length
-with open('lib/medium.json', 'r', encoding="mbcs") as file:
-    medium = json.load(file)
+user_os = sys.platform
 
-# texts 250+ characters in length
-with open('lib/hard.json', 'r', encoding="mbcs") as file:
-    hard = json.load(file)
+# texts from 0-150 characters in length
+if user_os == 'linux':
+    with open('lib/easy.json', 'r', encoding="utf-8") as file:
+        easy = json.load(file)
+
+    # texts from 150-250 characters in length
+    with open('lib/medium.json', 'r', encoding="utf-8") as file:
+        medium = json.load(file)
+
+    # texts 250+ characters in length
+    with open('lib/hard.json', 'r', encoding="utf-8") as file:
+        hard = json.load(file)
+
+elif user_os == 'win32':
+    with open('lib/easy.json', 'r', encoding="mbcs") as file:
+        easy = json.load(file)
+        
+    # texts from 150-250 characters in length
+    with open('lib/medium.json', 'r', encoding="mbcs") as file:
+        medium = json.load(file)
+
+    # texts 250+ characters in length
+    with open('lib/hard.json', 'r', encoding="mbcs") as file:
+        hard = json.load(file)
 
 user = []  # array of all tests done by user
 colorend = '\033[0m'  # python ansi colour code ending
@@ -52,7 +67,7 @@ def printoptions():
             \033[0;32m(2) Visit the Sand Bar (view my previous times)
             \033[0;31m(3) Scour the Dunes (improve your typing skills)
             \033[0;30m(0) ***EXIT THE PROGRAM***{colorend}
-            Please select one of these options (1, 2, or 3) by typing it into the console below.
+            Please select one of these options (0, 1, 2, or 3) by typing it into the console below.
             """, False)
     
 
@@ -77,6 +92,8 @@ while True:
     if response in ['1', 'one', 's'] or response.startswith('start'):
         if os.name == 'nt':
             os.system('cls')
+        elif os.name == 'posix':
+            os.system('clear')
         else:
             os.system('clear')
 
@@ -111,6 +128,8 @@ while True:
 
         if os.name == 'nt':
             os.system('cls')
+        elif os.name == 'posix':
+            os.system('clear')
         else:
             os.system('clear')
         printdelay(
@@ -129,6 +148,8 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
 
         if os.name == 'nt':
             os.system('cls')
+        elif os.name == 'posix':
+            os.system('clear')
         else:
             os.system('clear')
         printdelay(f"""\033[1mYour text is:{colorend}\n
@@ -168,6 +189,8 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
 
             if os.name == 'nt':
                 os.system('cls')
+            elif os.name == 'posix':
+                os.system('clear')
             else:
                 os.system('clear')
 
