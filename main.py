@@ -7,28 +7,29 @@ from datetime import datetime
 
 user_os = sys.platform
 
-# texts from 0-150 characters in length
 if user_os == 'linux':
+    # texts from 0-150 characters in length
     with open('lib/easy.json', 'r', encoding="utf-8") as file:
         easy = json.load(file)
 
-    # texts from 150-250 characters in length
+    # texts from 151-250 characters in length
     with open('lib/medium.json', 'r', encoding="utf-8") as file:
         medium = json.load(file)
 
-    # texts 250+ characters in length
+    # texts 251-500 characters in length
     with open('lib/hard.json', 'r', encoding="utf-8") as file:
         hard = json.load(file)
 
 elif user_os == 'win32':
+    # texts from 0-150 characters in length
     with open('lib/easy.json', 'r', encoding="mbcs") as file:
         easy = json.load(file)
         
-    # texts from 150-250 characters in length
+    # texts from 151-250 characters in length
     with open('lib/medium.json', 'r', encoding="mbcs") as file:
         medium = json.load(file)
 
-    # texts 250+ characters in length
+    # texts 251-500 characters in length
     with open('lib/hard.json', 'r', encoding="mbcs") as file:
         hard = json.load(file)
 
