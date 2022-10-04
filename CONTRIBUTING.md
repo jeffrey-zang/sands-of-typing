@@ -4,5 +4,5 @@ To contribute, press the "Fork" button on GitHub. Then, open this repo using you
 To contribute texts, add them to the arrays in main.py. Here are the benchmarks:
 
 Easy: 0-150 characters<br/>
-Medium: 150-250 characters<br/>
-Hard: 250+ characters
+Medium: 151-250 characters<br/>
+Hard: 251-500 characters
