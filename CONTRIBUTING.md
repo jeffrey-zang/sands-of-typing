@@ -7,7 +7,3 @@ Easy: 0-150 characters<br/>
 Medium: 151-250 characters<br/>
 Hard: 251-500 characters
 
-#list of Contributors
-add your name in this format [your name](github link)
-
-[Chinmay Kotkar](https://github.com/Chinmay-03)
