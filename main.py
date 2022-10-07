@@ -7,31 +7,23 @@ from datetime import datetime
 
 user_os = sys.platform
 
-if user_os == 'linux':
-    # texts from 0-150 characters in length
-    with open('lib/easy.json', 'r', encoding="utf-8") as file:
-        easy = json.load(file)
+if user_os == "linux" or user_os == "darwin":
+    encoding = "utf-8"
 
-    # texts from 151-250 characters in length
-    with open('lib/medium.json', 'r', encoding="utf-8") as file:
-        medium = json.load(file)
+elif user_os == "win32":
+    encoding = "mbcs"
 
-    # texts 251-500 characters in length
-    with open('lib/hard.json', 'r', encoding="utf-8") as file:
-        hard = json.load(file)
+# texts from 0-150 characters in length
+with open("lib/easy.json", "r", encoding=encoding) as file:
+    easy = json.load(file)
 
-elif user_os == 'win32':
-    # texts from 0-150 characters in length
-    with open('lib/easy.json', 'r', encoding="mbcs") as file:
-        easy = json.load(file)
-        
-    # texts from 151-250 characters in length
-    with open('lib/medium.json', 'r', encoding="mbcs") as file:
-        medium = json.load(file)
+# texts from 151-250 characters in length
+with open("lib/medium.json", "r", encoding=encoding) as file:
+    medium = json.load(file)
 
-    # texts 251-500 characters in length
-    with open('lib/hard.json', 'r', encoding="mbcs") as file:
-        hard = json.load(file)
+# texts 251+ characters in length
+with open("lib/hard.json", "r", encoding=encoding) as file:
+    hard = json.load(file)
 
 user = []  # array of all tests done by user
 colorend = '\033[0m'  # python ansi colour code ending
