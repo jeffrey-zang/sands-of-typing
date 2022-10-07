@@ -10,13 +10,13 @@ Sands of Typing is a typing test program in the command line, made with the Pyth
 
 ## Screenshots
 Home page<br/>
-![image](image.png)
+![image](img/image.png)
 
 Typing test<br/>
-![image](image_2.png)
+![image_2](img/image_2.png)
 
 Previous times<br/>
-![image](image_3.png)
+![image_3](img/image_3.png)
 
 ## Copy-Paste Proof
 Since this program runs in the command line, it is immune to the Ctrl+C copy command. Ctrl+C is the escape shortcut, and causes a KeyboardInterruptError in Python 3.
