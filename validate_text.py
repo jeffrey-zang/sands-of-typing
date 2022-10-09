@@ -6,12 +6,7 @@ MAX_CHAR_MEDIUM = 250
 MAX_CHAR_HARD = 500
 
 user_os = sys.platform
-
-if user_os == "linux" or user_os == "darwin":
-    encoding = "utf-8"
-
-elif user_os == "win32":
-    encoding = "mbcs"
+encoding = "mbcs" if user_os == "win32" else "utf-8"
 
 # texts from 0-150 characters in length
 with open("lib/easy.json", "r", encoding=encoding) as file:
