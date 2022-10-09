@@ -6,12 +6,7 @@ import random
 from datetime import datetime
 
 user_os = sys.platform
-
-if user_os == "linux" or user_os == "darwin":
-    encoding = "utf-8"
-
-elif user_os == "win32":
-    encoding = "mbcs"
+encoding = "mbcs" if user_os == "win32" else "utf-8"
 
 # texts from 0-150 characters in length
 with open("lib/easy.json", "r", encoding=encoding) as file:
@@ -51,6 +46,12 @@ def printdelay(string, dobreaker=True):
     if dobreaker:
         print(breaker)
 
+def clear():
+    """Clears the console"""
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def printoptions():
     """Prints menu options"""
@@ -63,6 +64,7 @@ def printoptions():
             Please select one of these options (0, 1, 2, or 3) by typing it into the console below.
             """, False)
     
+
 
 
 breaker = f"\033[1;33m{'*' * 5} {'~' * 40} {'*' * 5}{colorend}"
@@ -83,12 +85,7 @@ while True:
         sys.exit(0)
     
     if response in ['1', 'one', 's'] or response.startswith('start'):
-        if os.name == 'nt':
-            os.system('cls')
-        elif os.name == 'posix':
-            os.system('clear')
-        else:
-            os.system('clear')
+        clear()
 
         printdelay(f"""\033[1;34mCamel Racing (typing test){colorend}\n
 \033[1mDifficulty Options
@@ -105,28 +102,26 @@ while True:
             )
 
             if difficulty.lower() in ['1', 'easy', 'mojave', 'one']:
-                selectedtext = [random.choice(easy), 'easy']
+                difficulty = 'easy'
+                selectedtext = random.choice(easy)
                 break
             elif difficulty.lower() in ['2', 'medium', 'gobi', 'two']:
+                difficulty = 'medium'
                 formatted = True
-                selectedtext = [random.choice(medium), 'medium']
+                selectedtext = random.choice(medium)
                 color = '\033[0;33m'
                 break
             elif difficulty.lower() in ['3', 'hard', 'sahara', 'three']:
+                difficulty = 'hard'
                 formatted = True
-                selectedtext = [random.choice(hard), 'hard']
+                selectedtext = random.choice(hard)
                 color = '\033[0;31m'
                 break
             continue
 
-        if os.name == 'nt':
-            os.system('cls')
-        elif os.name == 'posix':
-            os.system('clear')
-        else:
-            os.system('clear')
+        clear()
         printdelay(
-            f"""\033[1mSelected difficulty: {color}{selectedtext[1]}{colorend}
+            f"""\033[1mSelected difficulty: {color}{difficulty}{colorend}
 				
 When you see the text appear, DO NOT START. You will have some time to prepare, depending on how long the text is. Then, type it out as fast as you can. The test ends when you press \033[1mENTER, so be sure not to press it before then.
     """)
@@ -139,14 +134,9 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
                 if isready.lower() == 'ready':
                     break
 
-        if os.name == 'nt':
-            os.system('cls')
-        elif os.name == 'posix':
-            os.system('clear')
-        else:
-            os.system('clear')
+        clear()
         printdelay(f"""\033[1mYour text is:{colorend}\n
-\033[1;34m{selectedtext[0]}{colorend}\n
+\033[1;34m{selectedtext}{colorend}\n
 Take this time to read the text. You will see "GO!" when you are allowed to start. Press ENTER when you have finished the test.
 """)
         print('DON\'T START YET!')
@@ -162,7 +152,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
         elapsed = round(int(round(time.time() * 1000)) - now) / 1000
         perminute = 60 / elapsed
 
-        totalletters = len(list(selectedtext[0]))
+        totalletters = len(list(selectedtext))
         typedletters = len(list(typed))
 
         if typedletters != 0:
@@ -170,7 +160,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             accuracy = 100 - ((difference / typedletters) * 100)
             if accuracy == 0.0:
                 accuracy = 100
-            if selectedtext[0] != typed:
+            if selectedtext != typed:
                 if difference >= 2:
                     accuracy -= difference ^ 2
                 else:
@@ -180,16 +170,11 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             rawwpm = cpm / 4.7
             abswpm = rawwpm * (accuracy / 100)
 
-            if os.name == 'nt':
-                os.system('cls')
-            elif os.name == 'posix':
-                os.system('clear')
-            else:
-                os.system('clear')
+            clear()
 
             now = datetime.now()
             user.append({
-                'difficulty': [selectedtext[1], color],
+                'difficulty': [difficulty, color],
                 'wpm': round(abswpm, 2),
                 'accuracy': round(accuracy, 2),
                 'time': now.strftime("%d/%m/%Y %H:%M:%S")
@@ -226,10 +211,7 @@ Added to user records.
             printoptions()
 
     if response.lower() in ['2', 'view', 'sand bar', 'two']:
-        if os.name == 'nt':
-            os.system('cls')
-        else:
-            os.system('clear')
+        clear()
         if user == []:
             print('You don\'t have any recorded times. Do a camel race first!')
             printoptions()
@@ -256,10 +238,7 @@ Added to user records.
         printoptions()
 
     if response.lower() in ['3', 'improve', 'scour', 'three']:
-        if os.name == 'nt':
-            os.system('cls')
-        else:
-            os.system('clear')
+        clear()
         printdelay(f"""\033[1mBest typing resources{colorend}\n
 Other Typing Tests:
   - monkeytype (monkeytype.com)
