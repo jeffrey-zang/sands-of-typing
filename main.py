@@ -46,6 +46,12 @@ def printdelay(string, dobreaker=True):
     if dobreaker:
         print(breaker)
 
+def clear():
+    """Clears the console"""
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def printoptions():
     """Prints menu options"""
@@ -58,6 +64,7 @@ def printoptions():
             Please select one of these options (0, 1, 2, or 3) by typing it into the console below.
             """, False)
     
+
 
 
 breaker = f"\033[1;33m{'*' * 5} {'~' * 40} {'*' * 5}{colorend}"
@@ -78,12 +85,7 @@ while True:
         sys.exit(0)
     
     if response in ['1', 'one', 's'] or response.startswith('start'):
-        if os.name == 'nt':
-            os.system('cls')
-        elif os.name == 'posix':
-            os.system('clear')
-        else:
-            os.system('clear')
+        clear()
 
         printdelay(f"""\033[1;34mCamel Racing (typing test){colorend}\n
 \033[1mDifficulty Options
@@ -114,12 +116,7 @@ while True:
                 break
             continue
 
-        if os.name == 'nt':
-            os.system('cls')
-        elif os.name == 'posix':
-            os.system('clear')
-        else:
-            os.system('clear')
+        clear()
         printdelay(
             f"""\033[1mSelected difficulty: {color}{selectedtext[1]}{colorend}
 				
@@ -134,12 +131,7 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
                 if isready.lower() == 'ready':
                     break
 
-        if os.name == 'nt':
-            os.system('cls')
-        elif os.name == 'posix':
-            os.system('clear')
-        else:
-            os.system('clear')
+        clear()
         printdelay(f"""\033[1mYour text is:{colorend}\n
 \033[1;34m{selectedtext[0]}{colorend}\n
 Take this time to read the text. You will see "GO!" when you are allowed to start. Press ENTER when you have finished the test.
@@ -175,12 +167,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             rawwpm = cpm / 4.7
             abswpm = rawwpm * (accuracy / 100)
 
-            if os.name == 'nt':
-                os.system('cls')
-            elif os.name == 'posix':
-                os.system('clear')
-            else:
-                os.system('clear')
+            clear()
 
             now = datetime.now()
             user.append({
@@ -221,10 +208,7 @@ Added to user records.
             printoptions()
 
     if response.lower() in ['2', 'view', 'sand bar', 'two']:
-        if os.name == 'nt':
-            os.system('cls')
-        else:
-            os.system('clear')
+        clear()
         if user == []:
             print('You don\'t have any recorded times. Do a camel race first!')
             printoptions()
@@ -251,10 +235,7 @@ Added to user records.
         printoptions()
 
     if response.lower() in ['3', 'improve', 'scour', 'three']:
-        if os.name == 'nt':
-            os.system('cls')
-        else:
-            os.system('clear')
+        clear()
         printdelay(f"""\033[1mBest typing resources{colorend}\n
 Other Typing Tests:
   - monkeytype (monkeytype.com)
