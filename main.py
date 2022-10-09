@@ -102,23 +102,26 @@ while True:
             )
 
             if difficulty.lower() in ['1', 'easy', 'mojave', 'one']:
-                selectedtext = [random.choice(easy), 'easy']
+                difficulty = 'easy'
+                selectedtext = random.choice(easy)
                 break
             elif difficulty.lower() in ['2', 'medium', 'gobi', 'two']:
+                difficulty = 'medium'
                 formatted = True
-                selectedtext = [random.choice(medium), 'medium']
+                selectedtext = random.choice(medium)
                 color = '\033[0;33m'
                 break
             elif difficulty.lower() in ['3', 'hard', 'sahara', 'three']:
+                difficulty = 'hard'
                 formatted = True
-                selectedtext = [random.choice(hard), 'hard']
+                selectedtext = random.choice(hard)
                 color = '\033[0;31m'
                 break
             continue
 
         clear()
         printdelay(
-            f"""\033[1mSelected difficulty: {color}{selectedtext[1]}{colorend}
+            f"""\033[1mSelected difficulty: {color}{difficulty}{colorend}
 				
 When you see the text appear, DO NOT START. You will have some time to prepare, depending on how long the text is. Then, type it out as fast as you can. The test ends when you press \033[1mENTER, so be sure not to press it before then.
     """)
@@ -133,7 +136,7 @@ When you see the text appear, DO NOT START. You will have some time to prepare, 
 
         clear()
         printdelay(f"""\033[1mYour text is:{colorend}\n
-\033[1;34m{selectedtext[0]}{colorend}\n
+\033[1;34m{selectedtext}{colorend}\n
 Take this time to read the text. You will see "GO!" when you are allowed to start. Press ENTER when you have finished the test.
 """)
         print('DON\'T START YET!')
@@ -149,7 +152,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
         elapsed = round(int(round(time.time() * 1000)) - now) / 1000
         perminute = 60 / elapsed
 
-        totalletters = len(list(selectedtext[0]))
+        totalletters = len(list(selectedtext))
         typedletters = len(list(typed))
 
         if typedletters != 0:
@@ -157,7 +160,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
             accuracy = 100 - ((difference / typedletters) * 100)
             if accuracy == 0.0:
                 accuracy = 100
-            if selectedtext[0] != typed:
+            if selectedtext != typed:
                 if difference >= 2:
                     accuracy -= difference ^ 2
                 else:
@@ -171,7 +174,7 @@ Take this time to read the text. You will see "GO!" when you are allowed to star
 
             now = datetime.now()
             user.append({
-                'difficulty': [selectedtext[1], color],
+                'difficulty': [difficulty, color],
                 'wpm': round(abswpm, 2),
                 'accuracy': round(accuracy, 2),
                 'time': now.strftime("%d/%m/%Y %H:%M:%S")
